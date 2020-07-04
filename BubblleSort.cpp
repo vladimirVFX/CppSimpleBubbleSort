@@ -1,4 +1,4 @@
-﻿// BubblleSort
+// BubblleSort
 
 #include <iostream>
 #include <random>
@@ -6,7 +6,7 @@
 
 using namespace std;
 
-void GenerateVariables(float a[],int N) {  //FunctionGenerateVariables
+void GenerateVariables(float a[],int N) {  //FunctionGenerateVariables    
     for (int i = 0; i < N; i++) {   
         a[i] = rand() % 10;
     }
@@ -35,14 +35,16 @@ void BubbleSortAlgorithm(float a[], int N) {    //FunctionBuubleSortAlgorithm
 
 int main()
 {
-    float a[10];
     int N = 0;
-
+      
     cout << "Enter massive dimensions: ";
     cin >> N;
     cout << endl;
 
-    GenerateVariables(a, N);
+    float *a = new float[N];
+    for (int i = 0; i < N; i++) {
+        GenerateVariables(a, N);
+    }
 
     cout << "InitialMassive: ";
     PrintMassive(a, N);
@@ -52,6 +54,7 @@ int main()
     cout << "SortMassive: "; 
     PrintMassive(a, N);
         
+    delete[]a;
     getchar();
     return 0;
 }
